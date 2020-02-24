@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  // move functions into object
+
 //++++++++++++++++
 // GAME OBJECT
 //++++++++++++++++
@@ -36,6 +38,19 @@ const game = {
   // OBJECT METHODS
   //++++++++++++++++
 
+  //++++++++++++++++
+  // START GAME
+  //++++++++++++++++
+
+  startGame: function() {
+    this.createBoard();
+    this.addButtonClicks();
+  },
+
+  //++++++++++++++++
+  // CREATE BOARD
+  //++++++++++++++++
+
   // create board using boardWidth input
   createBoard: function() {
     this.boardSize = this.boardWidth * this.boardWidth;
@@ -53,12 +68,6 @@ const game = {
     }
   },
 
-  // currently obsolete function
-  // gamePlay: function(button) {
-  //   turnLog(button);
-  //   testWin();
-  // },
-
   //+++++++++++++++++++
   // ADD CLICK ABILITY
   //+++++++++++++++++++
@@ -67,8 +76,8 @@ const game = {
   addButtonClicks: function() {
     for (let i = 0; i < this.boardSize; i++) {
       $(`#button_${i}`).on('click', function() {
-        console.log(`Button ${i} is qliquey`);
-        runFunctions(`button_${i}`);
+        game.currentButton = `button_${i}`;
+        game.playTurn();
       });
       this.firstPlayerTurn = true;
     };
@@ -192,8 +201,7 @@ const game = {
 
     console.log(this.previousGames);
 
-
-    //reset button styling
+    //reset button styling & add click to board buttons
     $('.reset').on('click', function() {
       for (let i = 0; i < buttonArray.length; i++) {
         $(`#${buttonArray[i]}`).removeClass('active_red active_blue');
@@ -204,28 +212,15 @@ const game = {
     });
   }
 
-
+// game object end
 };
 
 
 //++++++++++++++++
-// CREATE BOARD
+// START GAME
 //++++++++++++++++
 
-  game.createBoard();
-  game.addButtonClicks();
-
-
-//++++++++++++++++
-// FUNCTIONS TO RUN
-//++++++++++++++++
-
-const runFunctions = function(button) {
-  game.currentButton = button;
-  game.playTurn();
-};
-
-
+game.startGame();
 
 // document end
 })
