@@ -13,10 +13,18 @@
   margin: 10px;
 }
 
-.active-red {
+.active_red {
   background-color: red;
 }
 
-.active-blue {
+.active_blue {
   background-color: blue;
+}
+
+.reset {
+  visibility: hidden;
+}
+
+.active_reset {
+  visibility: visible;
 }
