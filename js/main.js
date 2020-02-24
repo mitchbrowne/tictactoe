@@ -32,6 +32,12 @@ const game = {
     }
   },
 
+  // currently obsolete function
+  gamePlay: function(button) {
+    turnLog(button);
+    testWin();
+  },
+
   addButtonClicks: function() {
     for (let i = 0; i < this.boardSize; i++) {
       console.log('1');
@@ -40,7 +46,7 @@ const game = {
         runFunctions(`button_${i}`);
       });
     };
-  }
+  },
 
 
 };
@@ -53,58 +59,6 @@ const game = {
   game.createBoard();
   game.addButtonClicks();
 
-//++++++++++++++++
-// CLICK BUTTON (add loop a function to create these on click button functions)
-//++++++++++++++++
-
-// for (let i = 0; i < this.boardSize; i++) {
-//   console.log('1');
-//   $(`#button_${i}`).on('click', function() {
-//     console.log(`Button ${i} is qliquey`);
-//     runFunctions(`button_${i}`);
-//   });
-// };
-
-
-
-
-//
-// $('#button_0').on('click', function() {
-//   console.log("Button 0 is qliquey");
-//   runFunctions('button_0');
-// });
-// $('#button_1').on('click', function() {
-//   console.log("Button 1 is qliquey");
-//   runFunctions('button_1');
-// });
-// $('#button_2').on('click', function() {
-//   console.log("Button 2 is qliquey");
-//   runFunctions('button_2');
-// });
-// $('#button_3').on('click', function() {
-//   console.log("Button 3 is qliquey");
-//   runFunctions('button_3');
-// });
-// $('#button_4').on('click', function() {
-//   console.log("Button 4 is qliquey");
-//   runFunctions('button_4');
-// });
-// $('#button_5').on('click', function() {
-//   console.log("Button 5 is qliquey");
-//   runFunctions('button_5');
-// });
-// $('#button_6').on('click', function() {
-//   console.log("Button 6 is qliquey");
-//   runFunctions('button_6');
-// });
-// $('#button_7').on('click', function() {
-//   console.log("Button 7 is qliquey");
-//   runFunctions('button_7');
-// });
-// $('#button_8').on('click', function() {
-//   console.log("Button 8 is qliquey");
-//   runFunctions('button_8');
-// });
 
 //++++++++++++++++
 // FUNCTIONS TO RUN
@@ -112,7 +66,6 @@ const game = {
 
 const runFunctions = function(button) {
   turnLog(button);
-  testWin();
 };
 
 //++++++++++++++++
@@ -128,18 +81,33 @@ const turnLog = function(button) {
     };
   };
 
+  //assign button and number variables
   let $button = $(`#${button}`);
   let number = button[button.length-1];
+
+  // update button visual
+  if (game.firstPlayerTurn) {
+    $button.addClass('active-red');
+  } else {
+    $button.addClass('active-blue');
+  };
+
   // push turn information to game object
   game.turn.push({playerOne: `${game.firstPlayerTurn}`, box: `${$button.attr('id')}`});
+
   // push button to buttonsClicked array object
   game.buttonsClicked.push(button);
-  // update gameBoard to show each players position
+
+  // update gameBoard array with new turn position
   game.board[number] = game.firstPlayerTurn;
-  // switch player turn
-  game.firstPlayerTurn = !game.firstPlayerTurn;
+
   // test if player has won
-  console.log(game.turn);
+  testWin();
+
+  // final stage: switch player turn
+  game.firstPlayerTurn = !game.firstPlayerTurn;
+
+  $button.addClass('active-red');
 };
 
 //++++++++++++++++
@@ -148,7 +116,7 @@ const turnLog = function(button) {
 
 const testWin = function() {
   let board = game.board;
-  let player = !game.firstPlayerTurn
+  let player = game.firstPlayerTurn
   // has game already been won?
   if (game.gameWon) {
     return;
