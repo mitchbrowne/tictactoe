@@ -222,5 +222,34 @@ const game = {
 
 game.startGame();
 
+$('#test_game_1').on('click', function() {
+  $('#button_0').trigger('click');
+  $('#button_3').trigger('click');
+  $('#button_1').trigger('click');
+  $('#button_4').trigger('click');
+  $('#button_2').trigger('click');
+});
+
+$('#test_game_2').on('click', function() {
+  $('#button_0').trigger('click');
+  $('#button_2').trigger('click');
+  $('#button_1').trigger('click');
+  $('#button_5').trigger('click');
+  $('#button_4').trigger('click');
+  $('#button_8').trigger('click');
+});
+
+$('#test_game_3').on('click', function() {
+  $('#button_6').trigger('click');
+  $('#button_7').trigger('click');
+  $('#button_8').trigger('click');
+  $('#button_3').trigger('click');
+  $('#button_4').trigger('click');
+  $('#button_5').trigger('click');
+  $('#button_1').trigger('click');
+  $('#button_0').trigger('click');
+  $('#button_2').trigger('click');
+});
+
 // document end
 })
