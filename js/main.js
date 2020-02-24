@@ -59,6 +59,10 @@ const game = {
   //   testWin();
   // },
 
+  //+++++++++++++++++++
+  // ADD CLICK ABILITY
+  //+++++++++++++++++++
+
   // adds ability to click buttons when game begins
   addButtonClicks: function() {
     for (let i = 0; i < this.boardSize; i++) {
@@ -70,12 +74,20 @@ const game = {
     };
   },
 
+  //++++++++++++++++++++++
+  // REMOVE CLICK ABILITY
+  //++++++++++++++++++++++
+
   // removes ability to click any buttons once game is finished
   removeButtonClicks: function() {
     for (let i = 0; i < this.boardSize; i++) {
       $(`#button_${i}`).off('click')
     };
   },
+
+  //++++++++++++++++
+  // PLAYER TURN
+  //++++++++++++++++
 
   // user plays a turn
   playTurn: function() {
@@ -84,15 +96,12 @@ const game = {
     let button = this.currentButton;
     let number = button[button.length-1];
 
-
     // test if button has already been clicked
-    for (let i = 0; i < this.buttonsClicked.length; i++) {
-      if (button === this.buttonsClicked[i]) {
-        console.log("Button already clicked.");
-        return;
-      };
-    };
-    console.log("player: "+this.firstPlayerTurn);
+    if (this.buttonsClicked.includes(`${button}`)) {
+      console.log("Button already clicked.");
+      return;
+    }
+
     // update button visual
     if (this.firstPlayerTurn) {
       $button.addClass('active_red');
@@ -110,11 +119,41 @@ const game = {
     this.board[number] = this.firstPlayerTurn;
 
     // test if player has won
-    testWin();
+    this.testWin();
 
     // final stage: switch player turn
     this.firstPlayerTurn = !this.firstPlayerTurn;
   },
+
+  //++++++++++++++++
+  // TEST WIN
+  //++++++++++++++++
+
+  testWin: function() {
+    let board = this.board;
+    let player = this.firstPlayerTurn
+
+    for (let i = 0; i < this.winScenario.length; i++) {
+      let a = this.winScenario[i];
+      if (player === board[a[0]] && board[a[0]] === board[a[1]] && board[a[1]] === board[a[2]]) {
+        this.gameWon = true;
+        this.playerWon = `${player}`;
+        this.winType = `${a[3]}`;
+        this.resetGame();
+        return;
+      } else if (game.turn.length > 8) {
+        this.gameWon = false;
+        this.playerWon = `draw`;
+        this.winType = `draw`;
+        this.resetGame();
+        return;
+      };
+    };
+  },
+
+  //++++++++++++++++
+  // RESET GAME
+  //++++++++++++++++
 
   resetGame: function() {
     // remove ability to click any more boxes
@@ -161,6 +200,7 @@ const game = {
       };
       $(this).removeClass('active_reset');
       game.addButtonClicks();
+      $(this).off('click');
     });
   }
 
@@ -185,86 +225,7 @@ const runFunctions = function(button) {
   game.playTurn();
 };
 
-//++++++++++++++++
-// TEST WIN
-//++++++++++++++++
 
-const testWin = function() {
-  let board = game.board;
-  let player = game.firstPlayerTurn
-  // // has game already been won?
-  // if (game.gameWon) {
-  //   game.resetGame();
-  //   return;
-  // // if number of turns is over 8, then no winner
-  // } else if (game.gameWon === false && game.turn.length > 7) {
-  //   console.log("DRAW");
-  //   game.gameWon = false;
-  //   game.playerWon = `draw`;
-  //   game.resetGame();
-  // // top row
-  // } else if (player === board[0] && board[0] === board[1] && board[1] === board[2]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  // // middle row
-  // } else if (player === board[3] && board[3] === board[4] && board[4] === board[5]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  // // bottom row
-  // } else if (player === board[6] && board[6] === board[7] && board[7] === board[8]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  // //left column
-  // } else if (player === board[0] && board[0] === board[3] && board[3] === board[6]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  // // middle column
-  // } else if (player === board[1] && board[1] === board[4] && board[4] === board[7]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  //   // right column
-  // } else if (player === board[2] && board[2] === board[5] && board[5] === board[8]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  //   // top left bottom right diagonal
-  // } else if (player === board[0] && board[0] === board[4] && board[4] === board[8]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  //   // bottom left top right diagonal
-  // } else if (player === board[2] && board[2] === board[4] && board[4] === board[6]) {
-  //   game.gameWon = true;
-  //   game.playerWon = `${player}`;
-  //   game.resetGame();
-  // } else {
-  //   console.log("Continue playing");
-  // };
-
-  for (let i = 0; i < game.winScenario.length; i++) {
-    let a = game.winScenario[i];
-    if (player === board[a[0]] && board[a[0]] === board[a[1]] && board[a[1]] === board[a[2]]) {
-      game.gameWon = true;
-      game.playerWon = `${player}`;
-      game.winType =
-      game.resetGame();
-    } else if (game.turn.length > 7) {
-      game.gameWon = false;
-      game.playerWon = `draw`;
-      game.winType = `draw`;
-      game.resetGame();
-    } else {
-      console.log(`Continue playing.`);
-    };
-  };
-
-
-};
 
 // document end
 })
