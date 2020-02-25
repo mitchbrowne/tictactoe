@@ -1,4 +1,61 @@
-#container {
+.home_container {
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.ticker_container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+
+
+.marquee {
+  display: block;
+  font-size: 20px;
+  letter-spacing: 20px;
+  text-transform: uppercase;
+  margin: 10px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0.2;
+  /* position: absolute; */
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 30s linear infinite;
+}
+
+span.tic {
+  animation: marquee 40s linear infinite;
+  font-size: 30px;
+}
+span.toe {
+  animation: marquee 35s linear infinite;
+  font-size: 26px;
+}
+
+/* .marquee2 span {
+  animation-delay: 2.5s;
+} */
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+.game_container {
   background-color: pink;
   display: flex;
   flex-direction: column;
