@@ -57,14 +57,9 @@ const game = {
     this.board.length = this.boardSize;
     let count = 0;
     for (let i = 0; i < this.board.length; i++) {
-      if(i % this.boardWidth === 0) {
-        count++;
-        let $row = $(`<div class="row" id="row_${count}"></div>`);
-        $('.container').append($row);
-      }
       let $box = $(`<div class="box" id="box_${i}"></div>`);
-      $box.html(`<input type="button" class="button" id="button_${i}" value="Box ${i}">`);
-      $(`#row_${count}`).append($box);
+      $box.html(`<input type="button" class="button" id="button_${i}" value="">`);
+      $(`.board`).append($box);
     }
   },
 
