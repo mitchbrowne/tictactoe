@@ -10,7 +10,7 @@ const game = {
   // OBJECT VARIABLES
   //++++++++++++++++
 
-  gameNumber: 0,
+  gameNumber: window.localStorage.length,
   boardWidth: 3, // width of game board
   boardSize: 0, // total number of cells
   board: [], // current status of board after each turn
@@ -33,6 +33,7 @@ const game = {
     [0,4,8, 'top left diagonal'],
     [2,4,6, 'bottom left diagonal']
   ],
+
 
   //++++++++++++++++++++++++++
   // OBJECT METHODS
@@ -209,6 +210,7 @@ const game = {
       time: new Date()
     };
     this.previousGames.push(this.currentGame)
+    window.localStorage.setItem(`${this.gameNumber}`,JSON.stringify(this.currentGame));
 
     // save button array before reset
     let buttonArray = this.buttonsClicked;

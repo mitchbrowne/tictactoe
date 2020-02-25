@@ -2,6 +2,7 @@ css
   add @media rules
   update Start game, reset game, nav button styles
   clean naming structure?
+  add hover effect when player hovers over a tile
 
 html
   connect each webpage together
@@ -13,3 +14,5 @@ js
   add AI opponent
   add database
   add choose player feature
+  support custom board sizes
+  allow network players
