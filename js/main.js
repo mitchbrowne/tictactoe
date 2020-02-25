@@ -59,7 +59,7 @@ const game = {
     for (let i = 0; i < this.board.length; i++) {
       let $box = $(`<div class="box" id="box_${i}"></div>`);
       $box.html(`<input type="button" class="button" id="button_${i}" value="">`);
-      $(`.board`).append($box);
+      $(`.game_board`).append($box);
     }
   },
 
@@ -108,9 +108,9 @@ const game = {
 
     // update button visual
     if (this.firstPlayerTurn) {
-      $button.addClass('active_red');
+      $button.addClass('active_first');
     } else {
-      $button.addClass('active_blue');
+      $button.addClass('active_second');
     };
 
     // push turn information to game object
@@ -163,7 +163,7 @@ const game = {
     // remove ability to click any more boxes
     this.removeButtonClicks();
     // show reset button
-    $('.reset').addClass('active_reset');
+    $('#reset_game').addClass('active_reset');
     // store current game data in previousGames array
     this.currentGame = {
       gameNumber: this.gameNumber,
@@ -197,9 +197,9 @@ const game = {
     console.log(this.previousGames);
 
     //reset button styling & add click to board buttons
-    $('.reset').on('click', function() {
+    $('#reset_game').on('click', function() {
       for (let i = 0; i < buttonArray.length; i++) {
-        $(`#${buttonArray[i]}`).removeClass('active_red active_blue');
+        $(`#${buttonArray[i]}`).removeClass('active_first active_second');
       };
       $(this).removeClass('active_reset');
       game.addButtonClicks();

@@ -4,10 +4,11 @@
 HOME PAGE
 +++++++++++ */
 
-
+body {
+  background-color: #F5F1C0;
+}
 
 .home_container {
-  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,11 +30,8 @@ HOME PAGE
   /* margin: 20px; */
   font-family: 'Damion';
   font-size: 60px;
-  -webkit-text-stroke: 0.5px black;
+  -webkit-text-stroke: 0.5px #000000;
   color: white;
-  text-shadow:
-  4px 2px 0 #333,
-  4px 2px 0 #333;
 }
 
 .tic {
@@ -93,7 +91,7 @@ HOME PAGE
 
 .start_game {
   animation: fadeIn 2.1s,
-            pulse 2s infinite;
+            pulse 4s infinite;
   animation-fill-mode: forwards;
   visibility: hidden;
 }
@@ -108,9 +106,9 @@ HOME PAGE
 }
 
 @keyframes pulse {
-  0% {transform: scale(0.95);}
-  70% {transform: scale(1);}
-  100% {transform:scale(0.95);}
+  0% {transform: scale(1);}
+  70% {transform: scale(1.2);}
+  100% {transform:scale(1);}
 }
 
 /* +++++++++
@@ -118,25 +116,53 @@ GAME PAGE
 +++++++++ */
 
 .game_container {
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 100vh;
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 }
 
-.board {
+.side_title {
+  margin: 0.5vw;
+  font-family: 'Damion';
+  font-size: 4vw;
+  letter-spacing: 0.5vw;
+  -webkit-text-stroke: 0.1px #000000;
+  color: #F5F1C0;
+}
+
+.game_title_tic {
+
+  text-shadow:
+  2px 2px 0 #29B473,
+  2px 2px 0 #29B473;
+}
+
+.game_title_tac {
+  text-shadow:
+  2px 2px 0 #F9EC31,
+  2px 2px 0 #F9EC31;
+}
+
+.game_title_toe {
+  text-shadow:
+  2px 2px 0 #F05A28,
+  2px 2px 0 #F05A28;
+}
+
+.game_board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
 .box {
-  border: 1px solid red;
+  border: 1px solid #EF805B;
   width: 100px;
   height: 100px;
   margin: 10px;
+  box-shadow: 1mm 1mm 0mm #F05A28;
 }
 
 .button {
@@ -147,12 +173,12 @@ GAME PAGE
   background: none;
 }
 
-.active_red {
-  background-color: #90278E;
+.active_first {
+  background-color: #29B473;
 }
 
-.active_blue {
-  background-color: #1B75BB;
+.active_second {
+  background-color: #F9EC31;
 }
 
 .reset {
@@ -161,4 +187,21 @@ GAME PAGE
 
 .active_reset {
   visibility: visible;
+}
+
+.reset_game_container {
+  text-align: center;
+  animation: pulse 4s infinite;
+  visibility: hidden;
+}
+
+.game_message {
+  font-family: 'Damion';
+  font-size: 30px;
+  color: black;
+  /* -webkit-text-stroke: 1px black;
+  color: white;*/
+  text-shadow:
+  2px 2px 0 #29B473,
+  2px 2px 0 #29B473;
 }
