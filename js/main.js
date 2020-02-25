@@ -1,15 +1,15 @@
 $(document).ready(function() {
 
-  // move functions into object
-
 //++++++++++++++++
 // GAME OBJECT
 //++++++++++++++++
+
 const game = {
 
   //++++++++++++++++
   // OBJECT VARIABLES
   //++++++++++++++++
+
   gameNumber: 0,
   boardWidth: 3, // width of game board
   boardSize: 0, // total number of cells
@@ -34,9 +34,9 @@ const game = {
     [2,4,6, 'bottom left diagonal']
   ],
 
-  //++++++++++++++++
+  //++++++++++++++++++++++++++
   // OBJECT METHODS
-  //++++++++++++++++
+  //++++++++++++++++++++++++++
 
   //++++++++++++++++
   // START GAME
@@ -125,8 +125,14 @@ const game = {
     // test if player has won
     this.testWin();
 
-    // final stage: switch player turn
-    this.firstPlayerTurn = !this.firstPlayerTurn;
+    // move into function if game not won AND first turn has been taken
+    if (!this.gameWon && this.turn.length != 0) {
+      // final stage: switch player turn
+      this.firstPlayerTurn = !this.firstPlayerTurn;
+      console.log("IN GAME")
+      // relay message to user
+      this.messageBoard(0);
+    };
   },
 
   //++++++++++++++++
@@ -143,15 +149,40 @@ const game = {
         this.gameWon = true;
         this.playerWon = `${player}`;
         this.winType = `${a[3]}`;
+        this.messageBoard(1); //win message
         this.resetGame();
         return;
       } else if (game.turn.length > 8) {
         this.gameWon = false;
         this.playerWon = `draw`;
         this.winType = `draw`;
+        this.messageBoard(2); //draw message
         this.resetGame();
         return;
       };
+    };
+  },
+
+  //++++++++++++++++
+  // MESSAGE BOARD
+  //++++++++++++++++
+
+  messageBoard: function(message_number) {
+    // 0: player turn, 1: player win, 2: player draw, 3: reset
+    console.log("Message Board inside");
+    const num = +message_number;
+    const player = (this.firstPlayerTurn) ? `first`:`second`;
+    const playerID = (this.firstPlayerTurn) ? `1`:`2`;
+
+    if (num === 0) {
+      $('#message').removeClass(`turn_first`).removeClass(`turn_second`);
+      $('#message').addClass(`turn_${player}`).html(`Player ${playerID} Turn`);
+    } else if (num === 1) {
+      $('#message').html(`Player ${playerID} Wins!`);
+    } else if (num === 2) {
+      $('#message').html(`Draw!`);
+    } else if (num === 3) {
+      $('#message').addClass(`turn_first`).html(`Player 1 Turn`);
     };
   },
 
@@ -198,11 +229,13 @@ const game = {
 
     //reset button styling & add click to board buttons
     $('#reset_game').on('click', function() {
+      console.log("inside reset click");
       for (let i = 0; i < buttonArray.length; i++) {
         $(`#${buttonArray[i]}`).removeClass('active_first active_second');
       };
       $(this).removeClass('active_reset');
       game.addButtonClicks();
+      game.messageBoard(3);
       $(this).off('click');
     });
   }
@@ -217,36 +250,38 @@ const game = {
 
 game.startGame();
 
-$('#test_game_1').on('click', function() {
-  $('#button_0').trigger('click');
-  $('#button_3').trigger('click');
-  $('#button_1').trigger('click');
-  $('#button_4').trigger('click');
-  $('#button_2').trigger('click');
-});
+//++++++++++++++++
+// TEST GAMES
+//++++++++++++++++
 
-$('#test_game_2').on('click', function() {
-  $('#button_0').trigger('click');
-  $('#button_2').trigger('click');
-  $('#button_1').trigger('click');
-  $('#button_5').trigger('click');
-  $('#button_4').trigger('click');
-  $('#button_8').trigger('click');
-});
-
-$('#test_game_3').on('click', function() {
-  $('#button_6').trigger('click');
-  $('#button_7').trigger('click');
-  $('#button_8').trigger('click');
-  $('#button_3').trigger('click');
-  $('#button_4').trigger('click');
-  $('#button_5').trigger('click');
-  $('#button_1').trigger('click');
-  $('#button_0').trigger('click');
-  $('#button_2').trigger('click');
-});
-
-
+// $('#test_game_1').on('click', function() {
+//   $('#button_0').trigger('click');
+//   $('#button_3').trigger('click');
+//   $('#button_1').trigger('click');
+//   $('#button_4').trigger('click');
+//   $('#button_2').trigger('click');
+// });
+//
+// $('#test_game_2').on('click', function() {
+//   $('#button_0').trigger('click');
+//   $('#button_2').trigger('click');
+//   $('#button_1').trigger('click');
+//   $('#button_5').trigger('click');
+//   $('#button_4').trigger('click');
+//   $('#button_8').trigger('click');
+// });
+//
+// $('#test_game_3').on('click', function() {
+//   $('#button_6').trigger('click');
+//   $('#button_7').trigger('click');
+//   $('#button_8').trigger('click');
+//   $('#button_3').trigger('click');
+//   $('#button_4').trigger('click');
+//   $('#button_5').trigger('click');
+//   $('#button_1').trigger('click');
+//   $('#button_0').trigger('click');
+//   $('#button_2').trigger('click');
+// });
 
 // document end
 })
