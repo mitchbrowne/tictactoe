@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Damion&display=swap');
+
+/* +++++++++++
+HOME PAGE
++++++++++++ */
+
+
+
 .home_container {
   background-color: #FFFFFF;
   display: flex;
@@ -7,56 +15,110 @@
   justify-content: space-around;
 }
 
-.ticker_container {
+.title_container {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  justify-content: center;
+  width: 20vw;
 }
 
-
-
-.marquee {
-  display: block;
-  font-size: 20px;
-  letter-spacing: 20px;
-  text-transform: uppercase;
-  margin: 10px 0 0 0;
-  white-space: nowrap;
-  overflow: hidden;
-  opacity: 0.2;
-  /* position: absolute; */
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* margin: 20px; */
+  font-family: 'Damion';
+  font-size: 60px;
+  -webkit-text-stroke: 0.5px black;
+  color: white;
+  text-shadow:
+  4px 2px 0 #333,
+  4px 2px 0 #333;
 }
 
-.marquee span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 30s linear infinite;
+.tic {
+  visibility: hidden;
+  animation: tic_animation 2.5s infinite;
+  text-shadow:
+  4px 4px 0 #29B473,
+  4px 4px 0 #29B473;
+}
+.tac {
+  visibility: hidden;
+  animation: tac_animation 2.5s infinite;
+  text-shadow:
+  4px 4px 0 #F9EC31,
+  4px 4px 0 #F9EC31;
+}
+.toe {
+  visibility: hidden;
+  animation: toe_animation 2.5s infinite;
+  text-shadow:
+  4px 4px 0 #F05A28,
+  4px 4px 0 #F05A28;
 }
 
-span.tic {
-  animation: marquee 40s linear infinite;
-  font-size: 30px;
+@keyframes tic_animation {
+  from {
+             visibility:hidden;
+          }
+      20% {
+             visibility:hidden;
+          }
+      to {
+             visibility:visible;
+       }
 }
-span.toe {
-  animation: marquee 35s linear infinite;
-  font-size: 26px;
+@keyframes tac_animation {
+  from {
+             visibility:hidden;
+          }
+      40% {
+             visibility:hidden;
+          }
+      to {
+             visibility:visible;
+       }
+}
+@keyframes toe_animation {
+  from {visibility:hidden;}
+      60% {visibility:hidden;}
+      to {visibility:visible;}
 }
 
-/* .marquee2 span {
-  animation-delay: 2.5s;
-} */
+.start_game_container {
+    position: absolute;
+    bottom: 10vh;
+}
 
-@keyframes marquee {
-  0% {
-    transform: translate(0, 0);
+.start_game {
+  animation: fadeIn 2.1s,
+            pulse 2s infinite;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+}
+
+@keyframes fadeIn {
+  99% {
+    visibility: hidden;
   }
   100% {
-    transform: translate(-100%, 0);
+    visibility: visible;
   }
 }
 
+@keyframes pulse {
+  0% {transform: scale(0.95);}
+  70% {transform: scale(1);}
+  100% {transform:scale(0.95);}
+}
+
+/* +++++++++
+GAME PAGE
++++++++++ */
+
 .game_container {
-  background-color: pink;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,9 +134,9 @@ span.toe {
 
 .box {
   border: 1px solid red;
-  width: 50px;
-  height: 50px;
-  margin: 5px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
 }
 
 .button {
@@ -83,7 +145,6 @@ span.toe {
   width: inherit;
   height: inherit;
   background: none;
-
 }
 
 .active_red {

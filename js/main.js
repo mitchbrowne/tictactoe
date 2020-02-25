@@ -246,25 +246,7 @@ $('#test_game_3').on('click', function() {
   $('#button_2').trigger('click');
 });
 
-//++++++++++++++++
-// CREATE MARQUEE TICKER TAPES
-//++++++++++++++++
 
-for (let i = 1; i < 20; i++) {
-  const tic = 'TIC   '.repeat(40);
-  const tac = 'TAC   '.repeat(40);
-  const toe = 'TOE   '.repeat(40);
-  console.log(i % 3);
-  if (i % 3 === 1) {
-    $('.ticker_container').append(`<p class="marquee"><span class="tic">${tic}</span></p>`);
-  } else if (i % 3 === 2) {
-    $('.ticker_container').append(`<p class="marquee"><span class="tac">${tac}</span></p>`);
-  } else if (i % 3 === 0) {
-    $('.ticker_container').append(`<p class="marquee"><span class="toe">${toe}</span></p>`);
-  }
-  // const $marquee =
-  // $('.ticker_container').append(`<p class="marquee"><span>${tic}</span></p>`);
-}
 
 // document end
 })
