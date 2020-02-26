@@ -3,6 +3,7 @@ let game;
 $(document).ready(function() {
 
 // ask user for name and color, update object
+//
 
 //++++++++++++++++
 // GAME OBJECT
@@ -23,10 +24,10 @@ game = {
   currentButton: '',
   playerOne: 'Player One',
   playerOneColorClass: `one`,
-  playerOneTitleClass: `green`,
+  playerOneTitleClass: `one_title`,
   playerTwo: 'Player Two',
   playerTwoColorClass: `two`,
-  playerTwoTitleClass: `yellow`,
+  playerTwoTitleClass: `two_title`,
   firstPlayerTurn: true, // playerOne = true, playerTwo = false
   gameWon: false, // true if won
   playerWon: '', // true if playerone won || false if playertwo won

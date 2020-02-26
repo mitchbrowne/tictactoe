@@ -518,27 +518,27 @@ CHOICE ARRAY
 }
 
 .three_title {
-  balor: #29B473;
+  color: #29B473;
 }
 
 .four_title {
-  bolor: #007F70;
+  color: #007F70;
 }
 .five_title {
-  bolor: #FFF05A;
+  color: #FFF05A;
 }
 .six_title {
   color: #F2307D;
 }
 .seven_title {
-  balor: #4C147A;
+  color: #4C147A;
 }
 .eight_title {
-  balor: #7ADBB9;
+  color: #7ADBB9;
 }
 
 .nine_title {
-  bolor: #AFC945;
+  color: #AFC945;
 }
 
 .ten_title {
@@ -546,11 +546,11 @@ CHOICE ARRAY
 }
 
 .eleven_title {
-  bacor: #E58B0F;
+  color: #E58B0F;
 }
 
 .twelve_title {
-  bacor: #FF32C8;
+  color: #FF32C8;
 }
 
 .active_first {
