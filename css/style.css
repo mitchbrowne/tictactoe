@@ -585,15 +585,15 @@ CHOICE ARRAY
   align-items: center;
 }
 
-.game_message {
+#message {
   font-family: 'Damion';
   font-size: 3vw;
   animation: pulse_small 2s infinite;
   text-align: center;
 }
 
-.turn_first {
-  color: #29B473;
+.first_message {
+  color: #FFFFFF;
 }
 
 .turn_second {

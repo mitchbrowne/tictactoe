@@ -2,8 +2,8 @@ let game;
 
 $(document).ready(function() {
 
-// ask user for name and color, update object
-//
+// ask user for name, update object
+// update message board with color and name
 
 //++++++++++++++++
 // GAME OBJECT
@@ -185,14 +185,15 @@ game = {
   messageBoard: function(message_number) {
     // 0: player turn, 1: player win, 2: player draw, 3: reset
     const num = +message_number;
-    const player = (this.firstPlayerTurn) ? `first`:`second`;
-    const playerID = (this.firstPlayerTurn) ? `1`:`2`;
+    const player = (this.firstPlayerTurn) ? `playerOneTitleClass`:`playerTwoTitleClass`;
+    const playerID = (this.firstPlayerTurn) ? `playerOne`:`playerTwo`;
+
 
     if (num === 0) {
-      $('#message').removeClass(`turn_first`).removeClass(`turn_second`);
-      $('#message').addClass(`turn_${player}`).html(`Player ${playerID} Turn`);
+      $('#message').removeClass();
+      $('#message').addClass(`${this[`${player}`]}`).html(`${this[`${playerID}`]}'s Turn`);
     } else if (num === 1) {
-      $('#message').html(`Player ${playerID} Wins!`);
+      $('#message').html(`${this[`${playerID}`]} Wins!`);
     } else if (num === 2) {
       $('#message').html(`Draw!`);
     } else if (num === 3) {
