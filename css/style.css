@@ -110,7 +110,12 @@ body {
 
 @keyframes pulse {
   0% {transform: scale(1);}
-  70% {transform: scale(1.2);}
+  50% {transform: scale(1.2);}
+  100% {transform:scale(1);}
+}
+@keyframes pulse_small {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
   100% {transform:scale(1);}
 }
 
@@ -135,8 +140,14 @@ GAME PAGE
   color: #F5F1C0;
 }
 
-.game_title_tic {
+.game_title_container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
 
+.game_title_tic {
   text-shadow:
   2px 2px 0 #29B473,
   2px 2px 0 #29B473;
@@ -154,7 +165,13 @@ GAME PAGE
   2px 2px 0 #F05A28;
 }
 
+.board_container {
+  display: flex;
+  flex-direction: column;
+}
+
 .game_board {
+  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -200,25 +217,55 @@ GAME PAGE
   visibility: hidden;
 }
 
+.message_container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
 .game_message {
   font-family: 'Damion';
   font-size: 30px;
   color: black;
-  /* -webkit-text-stroke: 1px black;
-  color: white;*/
-  text-shadow:
-  2px 2px 0 #29B473,
-  2px 2px 0 #29B473;
+  animation: pulse_small 2s infinite;
+  /* text-shadow:
+  1px 1px 0 #29B473,
+  1px 1px 0 #29B473; */
 }
 
 .turn_first {
+  /* color: #29B473; */
   text-shadow:
-  2px 2px 0 #29B473,
-  2px 2px 0 #29B473;
+  1px 1px 0 #29B473,
+  1px 1px 0 #29B473;
 }
 
 .turn_second {
+  /* color: #F9EC31; */
   text-shadow:
-  2px 2px 0 #F9EC31,
-  2px 2px 0 #F9EC31;
+  1px 1px 0 #F9EC31,
+  1px 1px 0 #F9EC31;
+}
+
+/* +++++++++++
+STATS PAGE
++++++++++++ */
+
+.stats_title_container {
+  flex-grow: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats_container {
+  flex-grow: 2;
+  display: flex;
+  margin-right: 3vw;
+}
+
+.table {
+  flex-grow: 1;
+  width: 50vw;
 }

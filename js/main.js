@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+// ask user for name and color, update object
+
 //++++++++++++++++
 // GAME OBJECT
 //++++++++++++++++
@@ -17,6 +19,10 @@ const game = {
   turn: [], // {playerOne: 1, box: 0}
   buttonsClicked: [], // ['button_0','button_6']
   currentButton: '',
+  playerOne: 'Player One',
+  playerOneColor: 'green',
+  playerTwo: 'Player Two',
+  playerTwoColor: 'yellow',
   firstPlayerTurn: true, // playerOne = true, playerTwo = false
   gameWon: false, // true if won
   playerWon: '', // true if playerone won || false if playertwo won
@@ -196,6 +202,7 @@ const game = {
     this.removeButtonClicks();
     // show reset button
     $('#reset_game').addClass('active_reset');
+
     // store current game data in previousGames array
     this.currentGame = {
       gameNumber: this.gameNumber,
@@ -204,6 +211,10 @@ const game = {
       board: this.board,
       turn: this.turn,
       buttonsClicked: this.buttonsClicked,
+      playerOne: 'Player One',
+      playerOneColor: 'green',
+      playerTwo: 'Player Two',
+      playerTwoColor: 'yellow',
       gameWon: this.gameWon,
       winType: this.winType,
       playerWon: this.playerWon,

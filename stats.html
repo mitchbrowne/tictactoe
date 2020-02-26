@@ -3,17 +3,20 @@
   <head>
     <meta charset="utf-8">
     <script src="js/jquery.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/footable.js"></script>
+    <script src="js/table.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footable.standalone.css">
     <title>Tic Tac Toe</title>
   </head>
 
   <body>
     <div class="game_container">
 
-      <header class="game_title">
-          <h1 class="side_title game_title_tic">
+      <header class="stats_title_container">
+          <h1 class="stats_title_h1 side_title game_title_tic">
             <span class="t_tic">T</span>
             <span class="i_tic">I</span>
             <span class="c_tic">C</span>
@@ -30,18 +33,13 @@
           </h1>
       </header>
 
-      <main class="board_container">
-        <div class="game_board">
+      <main class="stats_container">
+        <table id="load_table" class="table" data-paging="true" data-sorting="true">
 
-        </div>
-        <div class="reset_game_container">
-          <input id="reset_game" class="button reset_game" type="button" name="reset game" value="Reset Game">
-        </div>
+        </table>
       </main>
 
-      <div class="message_container">
-        <div id="message" class="turn_first game_message">Player 1 Turn</div>
-      </div>
+
 
     </div>
 

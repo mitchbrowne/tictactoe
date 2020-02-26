@@ -3,6 +3,7 @@ css
   update Start game, reset game, nav button styles
   clean naming structure?
   add hover effect when player hovers over a tile
+  move tic tac toe title to top of page
 
 html
   connect each webpage together
