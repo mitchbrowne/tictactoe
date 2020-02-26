@@ -5,8 +5,17 @@
 HOME PAGE
 +++++++++++ */
 
+html {
+  scroll-behavior: auto;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #D8F7FF;
+}
+
+.container {
+  position: relative;
 }
 
 .home_container {
@@ -15,6 +24,7 @@ body {
   align-items: center;
   height: 100vh;
   justify-content: space-around;
+  margin-bottom: 500vh;
 }
 
 .title_container {
@@ -28,7 +38,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* margin: 20px; */
   font-family: 'Damion';
   font-size: 60px;
   -webkit-text-stroke: 0.5px #000000;
@@ -85,7 +94,7 @@ body {
       to {visibility:visible;}
 }
 
-.start_game_container {
+.start_button_container {
     position: absolute;
     bottom: 10vh;
 }
@@ -235,7 +244,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4d6', end
   position: absolute;
   bottom: 0;
   width: 100vw;
-  height: 20vh;
+  height: 10vh;
   background-color: #F5F1C0;
   z-index: -1;
 }
@@ -393,11 +402,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4d6', end
 STATS PAGE
 +++++++++++ */
 
-.stats_container {
+.button_container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    bottom: 3vh;
+}
+
+.page_button {
+  margin: 0 1vw;
+  font-family: 'Source Sans Pro';
+  text-transform: uppercase;
+  animation: pulse_small 5s infinite;
+  box-shadow: 0.5mm 0.5mm 0mm #F05A28;
+  opacity: 0.6;
+}
+
+.page_button:hover {
+  opacity: 1;
+}
+
+#stats {
   display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F5F1C0;
+}
+
+.stats_container {
   margin: auto 10vw;
 }
 
 .table {
   width: 50vw;
+  height: 30vh;
 }
