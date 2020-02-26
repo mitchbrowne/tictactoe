@@ -1,3 +1,5 @@
+let game;
+
 $(document).ready(function() {
 
 // ask user for name and color, update object
@@ -6,7 +8,7 @@ $(document).ready(function() {
 // GAME OBJECT
 //++++++++++++++++
 
-const game = {
+game = {
 
   //++++++++++++++++
   // OBJECT VARIABLES
@@ -20,9 +22,11 @@ const game = {
   buttonsClicked: [], // ['button_0','button_6']
   currentButton: '',
   playerOne: 'Player One',
-  playerOneColor: 'green',
+  playerOneColorClass: `one`,
+  playerOneTitleClass: `green`,
   playerTwo: 'Player Two',
-  playerTwoColor: 'yellow',
+  playerTwoColorClass: `two`,
+  playerTwoTitleClass: `yellow`,
   firstPlayerTurn: true, // playerOne = true, playerTwo = false
   gameWon: false, // true if won
   playerWon: '', // true if playerone won || false if playertwo won
@@ -115,10 +119,13 @@ const game = {
 
     // update button visual
     if (this.firstPlayerTurn) {
-      $button.addClass('active_first');
+      console.log(game.playerOneColorClass);
+      $button.addClass(`${game.playerOneColorClass}`);
     } else {
-      $button.addClass('active_second');
+      console.log(`${game.playerTwoColorClass}`);
+      $button.addClass(`${game.playerTwoColorClass}`);
     };
+
 
     // push turn information to game object
     this.turn.push({playerOne: `${this.firstPlayerTurn}`, box: `${$button.attr('id')}`});
@@ -176,7 +183,6 @@ const game = {
 
   messageBoard: function(message_number) {
     // 0: player turn, 1: player win, 2: player draw, 3: reset
-    console.log("Message Board inside");
     const num = +message_number;
     const player = (this.firstPlayerTurn) ? `first`:`second`;
     const playerID = (this.firstPlayerTurn) ? `1`:`2`;
@@ -244,7 +250,7 @@ const game = {
     $('#reset_game').on('click', function() {
       console.log("inside reset click");
       for (let i = 0; i < buttonArray.length; i++) {
-        $(`#${buttonArray[i]}`).removeClass('active_first active_second');
+        $(`#${buttonArray[i]}`).css('background-color', '#FFB096');
       };
       $(this).removeClass('active_reset');
       game.addButtonClicks();

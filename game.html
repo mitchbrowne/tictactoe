@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <script src="js/jquery.js"></script>
+    <script src="js/player.js"></script>
     <script src="js/footable.js"></script>
     <script src="js/table.js"></script>
     <script src="js/scroll.js"></script>
@@ -65,14 +66,20 @@
       </header>
       <main class="player_choice_container">
         <div id="player_one" class="player_box">
-          <h1 class="player_choice_title">
-            <input class="player_choice_input" type="text" name="player one input" value="Player One">
+          <h1>
+            <input id="player_one_title" class="player_choice_title" type="text" name="player one input" value="Player One">
           </h1>
+          <div id="player_one_grid" class="player_choice_grid">
+
+          </div>
         </div>
         <div id="player_two" class="player_box">
-          <h1 class="player_choice_title">
-            <input class="player_choice_input" type="text" name="player two input" value="Player Two">
+          <h1>
+            <input id="player_two_title" class="player_choice_title" type="text" name="player two input" value="Player Two">
           </h1>
+          <div id="player_two_grid" class="player_choice_grid">
+
+          </div>
         </div>
       </main>
     </div>

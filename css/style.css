@@ -184,28 +184,54 @@ PLAYER CHOICE
   width: 30vw;
   height: 60vh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* .player_choice_title {
-  font-family: 'Damion';
-  font-size: 2.5em;
-  color: white;
-  border-bottom: 1vh solid #F05A28;
-} */
-
-.player_choice_input {
+.player_choice_title {
   border:none;
-background-image:none;
-background-color:transparent;
-outline: none;
+  background-image:none;
+  background-color:transparent;
+  outline: none;
 
-text-align: center;
-font-family: 'Damion';
-font-size: 1.2em;
-color: white;
-padding-bottom: 1.5vh;
-border-bottom: 1vh solid #F05A28;
+  text-align: center;
+  font-family: 'Damion';
+  font-size: 1.2em;
+  color: white;
+  padding-bottom: 1.5vh;
+  border-bottom: 1vh solid #F05A28;
+  /* -webkit-text-stroke: 0.5px #000000; */
+  text-shadow:
+  1px 3px 0 #000000,
+  1px 3px 0 #000000;
 }
+
+.player_choice_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.choice_box {
+  width: 4em;
+  height: 4em;
+  margin: 1em;
+}
+
+.choice_button {
+  outline: none;
+  border: none;
+  width: inherit;
+  height: inherit;
+  background: #FFB096;
+  box-shadow: 1mm 1mm 0mm #F05A28;
+}
+
+.pressed_choice {
+  box-shadow: 0mm 0mm 0mm #F05A28;
+}
+
 
 /* +++++++++
 GAME PAGE
@@ -432,7 +458,99 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4d6', end
   border: none;
   width: inherit;
   height: inherit;
-  background: #FFB096;
+  background-color: #FFB096;
+}
+
+/* +++++++++
+CHOICE ARRAY
++++++++++ */
+
+.one {
+  background-color: #ED3318;
+}
+
+.two {
+  background-color: #1B75BB;
+}
+
+.three {
+  background-color: #29B473;
+}
+
+.four {
+  background-color: #007F70;
+}
+.five {
+  background-color: #FFF05A;
+}
+.six {
+  background-color: #F2307D;
+}
+.seven {
+  background-color: #4C147A;
+}
+.eight {
+  background-color: #7ADBB9;
+}
+
+.nine{
+  background-color: #AFC945;
+}
+
+.ten {
+  background-color:#A6D3CE;
+}
+
+.eleven {
+  background-color: #E58B0F;
+}
+
+.twelve {
+  background-color: #FF32C8;
+}
+
+.one_title {
+  color: #ED3318;
+}
+
+.two_title {
+  color: #1B75BB;
+}
+
+.three_title {
+  balor: #29B473;
+}
+
+.four_title {
+  bolor: #007F70;
+}
+.five_title {
+  bolor: #FFF05A;
+}
+.six_title {
+  color: #F2307D;
+}
+.seven_title {
+  balor: #4C147A;
+}
+.eight_title {
+  balor: #7ADBB9;
+}
+
+.nine_title {
+  bolor: #AFC945;
+}
+
+.ten_title {
+  color:#A6D3CE;
+}
+
+.eleven_title {
+  bacor: #E58B0F;
+}
+
+.twelve_title {
+  bacor: #FF32C8;
 }
 
 .active_first {
