@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   const columns = [
-    { "name": "gameNumber", "title": "ID", "breakpoints": "xs"}, // gameNumber
+    { "name": "gameNumber", "title": "Game", "breakpoints": "xs"}, // gameNumber
     { "name": "playerOne", "title": "Player One", "breakpoints": "xs"}, // playerOne name
     { "name": "playerOneColor", "title": "Color", "breakpoints": "xs"}, // playerOne color
     { "name": "playerTwo", "title": "Player Two", "breakpoints": "xs"}, // playerTwo name

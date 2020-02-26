@@ -6,6 +6,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/footable.js"></script>
     <script src="js/table.js"></script>
+    <script src="js/scroll.js"></script>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -15,28 +16,66 @@
 
 
   <body>
+
+    <nav class="nav_container">
+      <div id="button_container" class="button_container">
+        <a href="#start"><input class="button page_button" type="button" name="play" value="Play"></a>
+        <a href="#player"><input class="button page_button" type="button" name="start_game" value="Player"></a>
+        <a href="#stats"><input class="button page_button" type="button" name="stats" value="Stats"></a>
+        <a href="#home"><input class="button page_button" type="button" name="home" value="Home"></a>
+      </div>
+    </nav>
+
+
     <header id="home" class="home_container">
       <div class="title_container">
         <h1 class="title tic">
-          <span class="t_tic">T</span>
-          <span class="i_tic">I</span>
-          <span class="c_tic">C</span>
+          <span>T</span>
+          <span>I</span>
+          <span>C</span>
         </h1>
         <h1 class="title tac">
-          <span class="t_tac">T</span>
-          <span class="a_tac">A</span>
-          <span class="c_tac">C</span>
+          <span>T</span>
+          <span>A</span>
+          <span>C</span>
         </h1>
         <h1 class="title toe">
-          <span class="t_toe">T</span>
-          <span class="o_toe">O</span>
-          <span class="e_toe">E</span>
+          <span>T</span>
+          <span>O</span>
+          <span>E</span>
         </h1>
       </div>
       <div class="start_button_container">
         <a href="#start"><input class="button start_game" type="button" name="start_game" value="Start Game"></a>
       </div>
     </header>
+
+
+    <div id="player" class="player_container">
+      <header class="header_container">
+            <h1 class="title game_title_tac">
+              <span>P</span>
+              <span>L</span>
+              <span>A</span>
+              <span>Y</span>
+              <span>E</span>
+              <span>R</span>
+              <span>S</span>
+            </h1>
+      </header>
+      <main class="player_choice_container">
+        <div id="player_one" class="player_box">
+          <h1 class="player_choice_title">
+            <input class="player_choice_input" type="text" name="player one input" value="Player One">
+          </h1>
+        </div>
+        <div id="player_two" class="player_box">
+          <h1 class="player_choice_title">
+            <input class="player_choice_input" type="text" name="player two input" value="Player Two">
+          </h1>
+        </div>
+      </main>
+    </div>
 
 
     <div id="start" class="container">
@@ -54,19 +93,19 @@
 
     <header class="header_container">
           <h1 class="title game_title_tic">
-            <span class="t_tic">T</span>
-            <span class="i_tic">I</span>
-            <span class="c_tic">C</span>
+            <span>T</span>
+            <span>I</span>
+            <span>C</span>
           </h1>
           <h1 class="title game_title_tac">
-            <span class="t_tac">T</span>
-            <span class="a_tac">A</span>
-            <span class="c_tac">C</span>
+            <span>T</span>
+            <span>A</span>
+            <span>C</span>
           </h1>
           <h1 class="title game_title_toe">
-            <span class="t_toe">T</span>
-            <span class="o_toe">O</span>
-            <span class="e_toe">E</span>
+            <span>T</span>
+            <span>O</span>
+            <span>E</span>
           </h1>
     </header>
 
@@ -83,30 +122,29 @@
           <input id="reset_game" class="button reset_game" type="button" name="reset game" value="Reset Game">
         </div>
       </div>
-      <div class="button_container">
-        <a href="#start"><input class="button page_button" type="button" name="play" value="Play"></a>
-        <a href="#stats"><input class="button page_button" type="button" name="stats" value="Stats"></a>
-        <a href="#player"><input class="button page_button" type="button" name="start_game" value="Player"></a>
-        <a href="#home"><input class="button page_button" type="button" name="home" value="Home"></a>
-      </div>
     </main>
     </div>
 
-    <div id="stats" class="container">
-      <header class="header_container">
+
+    <div class="stats_padding">
+
+    </div>
+
+    <div class="stats_container">
+      <header id="stats" class="header_container">
             <h1 class="title game_title_toe">
-              <span class="t_toe">S</span>
-              <span class="o_toe">T</span>
-              <span class="e_toe">A</span>
-              <span class="e_toe">T</span>
-              <span class="e_toe">S</span>
+              <span>S</span>
+              <span>T</span>
+              <span>A</span>
+              <span>T</span>
+              <span>S</span>
             </h1>
       </header>
-      <div class="stats_container">
+      <div class="table_container">
         <table id="load_table" class="table" data-paging="true" data-sorting="true">
           </table>
       </div>
-    </div>
+  </div>
 
   </body>
 </html>
