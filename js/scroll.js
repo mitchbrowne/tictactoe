@@ -10,7 +10,6 @@ $(document).ready(function() {
     let comeUp = (st / $w.height()-5.2)*5;
     let sunVertical = ((st / $w.height())*97.5)+5;
     let sunHorizontal = (-(st / $w.height()))+5;
-    console.log(sunVertical);
     lastScrollTop = st;
     $('#sun').css('top', `${sunVertical}vh`);
     $('#sun').css('left', `${sunHorizontal}vw`);
