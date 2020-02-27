@@ -167,7 +167,7 @@ PLAYER CHOICE
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #D8F7FF;
+  background-color: none;
   z-index: -1000;
 }
 
