@@ -32,6 +32,7 @@ body {
 .page_button {
   margin: 0 1vw;
   font-family: 'Source Sans Pro';
+  font-size: 2vh;
   text-transform: uppercase;
   animation: pulse_small 5s infinite;
   box-shadow: 0.5mm 0.5mm 0mm #F05A28;
@@ -208,15 +209,16 @@ PLAYER CHOICE
 }
 
 .player_choice_grid {
+  height: 40vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
 .choice_box {
-  width: 4em;
-  height: 4em;
-  margin: 1em;
+  width: 5vw;
+  height: 5vw;
+  margin: 0.5vw 1vw;
 }
 
 .choice_button {
@@ -616,6 +618,7 @@ STATS PAGE
   flex-direction: column;
   height: 100vh;
   background-color: #F5F1C0;
+  padding-bottom: 20vh;
 }
 
 .table_container {

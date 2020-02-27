@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-  //make color choices window respoonsive
   //refactor loop to one loop for both choices
+  // start game with chosen color
 
 const choice_array = [
   'one',

@@ -161,8 +161,9 @@ game = {
     for (let i = 0; i < this.winScenario.length; i++) {
       let a = this.winScenario[i];
       if (player === board[a[0]] && board[a[0]] === board[a[1]] && board[a[1]] === board[a[2]]) {
+        const playerName = (this.player) ? `playerOne` : `playerTwo`
         this.gameWon = true;
-        this.playerWon = `${player}`;
+        this.playerWon = `${this[playerName]}`;
         this.winType = `${a[3]}`;
         this.messageBoard(1); //win message
         this.resetGame();
@@ -210,7 +211,7 @@ game = {
     this.removeButtonClicks();
     // show reset button
     $('#reset_game').addClass('active_reset');
-
+    console.log(this.playerOne);
     // store current game data in previousGames array
     this.currentGame = {
       gameNumber: this.gameNumber,
@@ -219,10 +220,10 @@ game = {
       board: this.board,
       turn: this.turn,
       buttonsClicked: this.buttonsClicked,
-      playerOne: 'Player One',
-      playerOneColor: 'green',
-      playerTwo: 'Player Two',
-      playerTwoColor: 'yellow',
+      playerOne: this.playerOne,
+      playerOneColorClass: this.playerOneColorClass,
+      playerTwo: this.playerTwo,
+      playerTwoColorClass: this.playerTwoColorClass,
       gameWon: this.gameWon,
       winType: this.winType,
       playerWon: this.playerWon,
