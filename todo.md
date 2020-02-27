@@ -27,3 +27,4 @@ toDo
   create a readme.md file
   enhance usability with instructions
   pine tree
+  auto stats table reload

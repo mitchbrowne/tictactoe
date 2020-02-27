@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   //refactor loop to one loop for both choices
 
+// array of css color classes for user to choose
 const choice_array = [
   'one',
   'two',
@@ -15,35 +16,35 @@ const choice_array = [
   'ten',
   'eleven',
   'twelve'
-]
+];
 
-// live update of player one name
-$(`#player_one_title`).on('keyup', function() {
-  if ($(this).val() === '') {
-    game.playerOne = `Player One`
-  } else {
-    game.playerOne = $(this).val();
-  }
-  $('#message').html(`${game.playerOne}'s Turn`);
-});
+// live update of player one/two name from player page input
+const liveInput = function(player) {
+  const id = (player) ? `#player_one_title` : `#player_two_title`;
+  const playerNumber = (player) ? `playerOne` : `playerTwo`;
+  const playerName = (player) ? `Player One` : `Player Two`;
 
-// live update of player two name
-$(`#player_two_title`).on('keyup', function() {
-  if ($(this).val() === '') {
-    game.playerTwo = `Player Two`
-  } else {
-    game.playerTwo = $(this).val();
-  }
-});
+  $(`${id}`).on('keyup', function() {
+    if ($(this).val() === '') {
+      game[`${playerNumber}`] = `${playerName}`;
+    } else {
+      game[`${playerNumber}`] = $(this).val();
+    }
+    if (player) $('#message').html(`${game[playerNumber]}'s Turn`);
+  });
+};
 
-// reset choice active button on player one
+liveInput(true);
+liveInput(false);
+
+// reset choice active button on player one when user chooses alternate button color
 const chosenOne = function(currentElement) {
   console.log(currentElement.id);
   for (let i = 0; i < choice_array.length; i++) {
     $(`#choice_one_${i}`).removeClass(`choice_active`);
   };
 }
-// reset choice active button on player two
+// reset choice active button on player two when user chooses alternate button color
 const chosenTwo = function(currentElement) {
   console.log(currentElement.id);
   for (let i = 0; i < choice_array.length; i++) {

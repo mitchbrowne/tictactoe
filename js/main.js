@@ -262,8 +262,9 @@ game = {
     //reset button styling & add click to board buttons
     $('#reset_game').on('click', function() {
       for (let i = 0; i < buttonArray.length; i++) {
-        $(`#${buttonArray[i]}`).removeClass(`${game.playerOneColorClass}`);
-        $(`#${buttonArray[i]}`).removeClass(`${game.playerTwoColorClass}`);
+        $(`#${buttonArray[i]}`).removeClass();
+        $(`#${buttonArray[i]}`).removeClass();
+        $(`#${buttonArray[i]}`).addClass(`button`);
       };
       $(this).removeClass('active_reset');
       game.addButtonClicks();
