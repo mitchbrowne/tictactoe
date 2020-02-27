@@ -198,7 +198,8 @@ game = {
     } else if (num === 2) {
       $('#message').html(`Draw!`);
     } else if (num === 3) {
-      $('#message').addClass(`turn_first`).html(`Player 1 Turn`);
+      $('#message').removeClass();
+      $('#message').addClass(`${this.playerOneTitleClass}`).html(`${this.playerOne}'s Turn`);
     };
   },
 
@@ -251,7 +252,6 @@ game = {
 
     //reset button styling & add click to board buttons
     $('#reset_game').on('click', function() {
-      console.log("inside reset click");
       for (let i = 0; i < buttonArray.length; i++) {
         $(`#${buttonArray[i]}`).removeClass(`${game.playerOneColorClass}`);
         $(`#${buttonArray[i]}`).removeClass(`${game.playerTwoColorClass}`);

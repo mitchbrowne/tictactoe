@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   // add color to color column
   // add constant reload
+  // change win to Win or Draw
 
   const columns = [
     { "name": "gameNumber", "title": "Game", "breakpoints": "xs"}, // gameNumber
