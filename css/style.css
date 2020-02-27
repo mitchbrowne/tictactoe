@@ -228,6 +228,14 @@ PLAYER CHOICE
   margin: 0.5vw 1vw;
 }
 
+@media screen and (max-height: 600px) {
+  .choice_box {
+    width: 3vw;
+    height: 3vw;
+    margin: 0.5vw 1vw;
+  }
+}
+
 .choice_button {
   outline: none;
   border: none;
