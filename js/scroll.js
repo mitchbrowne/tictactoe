@@ -8,7 +8,12 @@ $(document).ready(function() {
     // assign variables to scrollTop and window height expression
     let st = $w.scrollTop();
     let comeUp = (st / $w.height()-5.2)*5;
+    let sunVertical = ((st / $w.height())*97.5)+5;
+    let sunHorizontal = (-(st / $w.height()))+5;
+    console.log(sunVertical);
     lastScrollTop = st;
+    $('#sun').css('top', `${sunVertical}vh`);
+    $('#sun').css('left', `${sunHorizontal}vw`);
 
     if (comeUp > 0) {
       $('#button_container').css('bottom','3vh');
@@ -16,6 +21,7 @@ $(document).ready(function() {
     } else {
       $('#button_container').css('bottom','-3vh');
     };
+
 
   });
 })

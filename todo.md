@@ -17,3 +17,13 @@ js
   add choose player feature
   support custom board sizes
   allow network players
+
+toDo
+  test your code
+  test the projector resolution
+  formatting/indentation
+  comments
+  remove unused code
+  create a readme.md file
+  enhance usability with instructions
+  pine tree

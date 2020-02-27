@@ -30,7 +30,6 @@ $(document).ready(function() {
     table.push(rowFinal);
   }
 
-  console.log(table);
 
   $('.table').footable({
     "columns": columns,

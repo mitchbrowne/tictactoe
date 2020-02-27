@@ -168,6 +168,7 @@ PLAYER CHOICE
   flex-direction: column;
   height: 100vh;
   background-color: #D8F7FF;
+  z-index: -1000;
 }
 
 .player_choice_container {
@@ -339,16 +340,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4d6', end
   }
 
 
-
-
-.cloud_one {
-  width: 30vw;
-  position: absolute;
-  right: 3vw;
-  top: 10vh;
-}
-
-
 .background_base {
   position: absolute;
   bottom: 0;
@@ -364,9 +355,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4d6', end
   z-index: -10;
 }
 
-.dot {
-  top: -10vh;
-  left: -5vw;
+#sun {
+  top: 0vh;
+  left: 0vw;
   margin: auto;
   position: absolute;
   height: 20em;
@@ -376,7 +367,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4d6', end
   background-color: yellow;
   border-radius: 50%;
   background: radial-gradient(#F9F4A7 20%, yellow);
-  z-index: -2;
+  z-index: -5;
+}
+
+.cloud_one {
+  width: 30vw;
+  position: absolute;
+  right: 3vw;
+  top:50vh;
 }
 
 

@@ -111,16 +111,13 @@ game = {
 
     // test if button has already been clicked
     if (this.buttonsClicked.includes(`${button}`)) {
-      console.log("Button already clicked.");
       return;
     }
 
     // update button visual
     if (this.firstPlayerTurn) {
-      console.log(game.playerOneColorClass);
       $button.addClass(`${game.playerOneColorClass}`);
     } else {
-      console.log(`${game.playerTwoColorClass}`);
       $button.addClass(`${game.playerTwoColorClass}`);
     };
 
@@ -243,7 +240,6 @@ game = {
     this.winType = '';
     this.currentGame = {}; // every detail about current game
 
-    console.log(this.previousGames);
 
     //reset button styling & add click to board buttons
     $('#reset_game').on('click', function() {

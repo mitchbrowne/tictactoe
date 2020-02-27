@@ -95,12 +95,17 @@ for (let i = 0; i < 12; i++) {
     $(`#player_two_title`).addClass(`player_choice_title ${choice_array[i]}_title`);
     game.playerTwoColorClass = `${choice_array[i]}`;
     game.playerTwoTitleClass = `${choice_array[i]}_title`
+    $(`#start_button`).css({'opacity':'1', 'animation':'pulse 2s infinite'});
   }).on('mousedown', function() {
     $(this).addClass('pressed_choice');
   }).on('mouseup', function() {
     $(this).removeClass('pressed_choice');
   });
 };
+
+$(`#start_button`).on('click', function() {
+  $(this).css({'opacity':'0.4', 'animation':'none'});
+})
 
 
 
