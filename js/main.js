@@ -161,8 +161,6 @@ game = {
     for (let i = 0; i < this.winScenario.length; i++) {
       // assign current win scenario combination to a
       let a = this.winScenario[i];
-      console.log(this.turn);
-      console.log(player);
       // test if current player (true or false) value is equal to win combination
       if (player === board[a[0]] && board[a[0]] === board[a[1]] && board[a[1]] === board[a[2]]) {
         const playerName = (this.player) ? `playerOne` : `playerTwo`
