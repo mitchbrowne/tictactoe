@@ -370,11 +370,98 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#46b4d6', end
   z-index: -5;
 }
 
+
 .cloud_one {
   width: 30vw;
   position: absolute;
-  right: 3vw;
-  top:50vh;
+  right: -5vw;
+  top:30vh;
+}
+
+.cloud_two {
+  width: 50vw;
+  position: absolute;
+  right: 50vw;
+  top:40vh;
+}
+
+.cloud_three {
+  width: 20vw;
+  position: absolute;
+  right: 30vw;
+  top:120vh;
+}
+
+.cloud_four {
+  width: 60vw;
+  position: absolute;
+  right: -20vw;
+  top:170vh;
+}
+
+.cloud_five {
+  width: 20vw;
+  position: absolute;
+  right: 80vw;
+  top:250vh;
+}
+
+.cloud_six {
+  width: 30vw;
+  position: absolute;
+  right: 40vw;
+  top:280vh;
+}
+
+.cloud_seven {
+  width: 30vw;
+  position: absolute;
+  right: 85vw;
+  top:320vh;
+}
+
+.cloud_eight {
+  width: 50vw;
+  position: absolute;
+  right: 10vw;
+  top:310vh;
+}
+
+.cloud_nine {
+  width: 10vw;
+  position: absolute;
+  right: 10vw;
+  top:430vh;
+}
+
+.cloud_ten {
+  width: 30vw;
+  position: absolute;
+  right: 10vw;
+  top:480vh;
+}
+
+.cloud_eleven {
+  width: 40vw;
+  position: absolute;
+  right: 80vw;
+  top:520vh;
+}
+
+.cloud_twelve {
+  width: 20vw;
+  position: absolute;
+  right: 30vw;
+  top:660vh;
+  z-index: -1;
+}
+
+.cloud_thirteen {
+  width: 20vw;
+  position: absolute;
+  right: 0vw;
+  top:800vh;
+  z-index: -1;
 }
 
 
