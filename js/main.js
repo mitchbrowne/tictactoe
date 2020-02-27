@@ -2,9 +2,6 @@ let game;
 
 $(document).ready(function() {
 
-// ask user for name, update object
-// update message board with color and name
-
 //++++++++++++++++
 // GAME OBJECT
 //++++++++++++++++
@@ -29,20 +26,20 @@ game = {
   playerTwoColorClass: `two`,
   playerTwoTitleClass: `two_title`,
   firstPlayerTurn: true, // playerOne = true, playerTwo = false
-  gameWon: false, // true if won
+  gameWon: '', // Win or Draw
   playerWon: '', // true if playerone won || false if playertwo won
-  winType: '',
+  winType: '', // middle column, or top row, etc
   currentGame: {}, // every detail about current game
   previousGames: [], // every detail about each previous game
   winScenario: [
-    [0,1,2,'top row'],
-    [3,4,5, 'middle row'],
-    [6,7,8, 'bottom row'],
-    [0,3,6, 'left column'],
-    [1,4,7, 'middle column'],
-    [2,5,8, 'right column'],
-    [0,4,8, 'top left diagonal'],
-    [2,4,6, 'bottom left diagonal']
+    [0,1,2,'Top row'],
+    [3,4,5, 'Middle row'],
+    [6,7,8, 'Bottom row'],
+    [0,3,6, 'Left column'],
+    [1,4,7, 'Middle column'],
+    [2,5,8, 'Right column'],
+    [0,4,8, 'Top left diagonal'],
+    [2,4,6, 'Bottom left diagonal']
   ],
 
 
@@ -141,10 +138,9 @@ game = {
     this.testWin();
 
     // move into function if game not won AND first turn has been taken
-    if (!this.gameWon && this.turn.length != 0) {
+    if (this.turn.length != 0) {
       // final stage: switch player turn
       this.firstPlayerTurn = !this.firstPlayerTurn;
-      console.log("IN GAME")
       // relay message to user
       this.messageBoard(0);
     };
@@ -162,16 +158,16 @@ game = {
       let a = this.winScenario[i];
       if (player === board[a[0]] && board[a[0]] === board[a[1]] && board[a[1]] === board[a[2]]) {
         const playerName = (this.player) ? `playerOne` : `playerTwo`
-        this.gameWon = true;
+        this.gameWon = 'Win';
         this.playerWon = `${this[playerName]}`;
         this.winType = `${a[3]}`;
         this.messageBoard(1); //win message
         this.resetGame();
         return;
       } else if (game.turn.length > 8) {
-        this.gameWon = false;
-        this.playerWon = `draw`;
-        this.winType = `draw`;
+        this.gameWon = 'Draw';
+        this.playerWon = `Draw`;
+        this.winType = `Draw`;
         this.messageBoard(2); //draw message
         this.resetGame();
         return;
@@ -212,7 +208,6 @@ game = {
     this.removeButtonClicks();
     // show reset button
     $('#reset_game').addClass('active_reset');
-    console.log(this.playerOne);
     // store current game data in previousGames array
     this.currentGame = {
       gameNumber: this.gameNumber,
@@ -243,7 +238,7 @@ game = {
     this.buttonsClicked = []; // ['button_0','button_6']
     this.currentButton = '';
     this.firstPlayerTurn = true; // playerOne = true, playerTwo = false
-    this.gameWon = false; // true if won
+    this.gameWon = ''; // true if won
     this.playerWon = '';
     this.winType = '';
     this.currentGame = {}; // every detail about current game

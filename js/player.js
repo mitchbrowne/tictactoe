@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
   //refactor loop to one loop for both choices
-// highlight chosen box
 
 const choice_array = [
   'one',
