@@ -1,3 +1,4 @@
+// create global variable game
 let game;
 
 $(document).ready(function() {
@@ -12,19 +13,19 @@ game = {
   // OBJECT VARIABLES
   //++++++++++++++++
 
-  gameNumber: window.localStorage.length,
+  gameNumber: window.localStorage.length, //game number from local storage
   boardWidth: 3, // width of game board
   boardSize: 0, // total number of cells
   board: [], // current status of board after each turn
   turn: [], // {playerOne: 1, box: 0}
   buttonsClicked: [], // ['button_0','button_6']
-  currentButton: '',
-  playerOne: 'Player One',
-  playerOneColorClass: `one`,
-  playerOneTitleClass: `one_title`,
-  playerTwo: 'Player Two',
-  playerTwoColorClass: `two`,
-  playerTwoTitleClass: `two_title`,
+  currentButton: '', // current button clicked by player
+  playerOne: 'Player One', // name of player one
+  playerOneColorClass: `one`, // class with background color
+  playerOneTitleClass: `one_title`, // class with text color
+  playerTwo: 'Player Two', // name of player two
+  playerTwoColorClass: `two`, // class with background color
+  playerTwoTitleClass: `two_title`, // class with text color
   firstPlayerTurn: true, // playerOne = true, playerTwo = false
   gameWon: '', // Win or Draw
   playerWon: '', // true if playerone won || false if playertwo won
@@ -40,7 +41,7 @@ game = {
     [2,5,8, 'Right column'],
     [0,4,8, 'Top left diagonal'],
     [2,4,6, 'Bottom left diagonal']
-  ],
+  ], // each possible win combination
 
 
   //++++++++++++++++++++++++++
@@ -65,11 +66,12 @@ game = {
     this.boardSize = this.boardWidth * this.boardWidth;
     this.board.length = this.boardSize;
     let count = 0;
+    // create each button element for grid board
     for (let i = 0; i < this.board.length; i++) {
       let $box = $(`<div class="box" id="box_${i}"></div>`);
       $box.html(`<input type="button" class="button" id="button_${i}" value="">`);
       $(`.game_board`).append($box);
-    }
+    };
   },
 
   //+++++++++++++++++++
@@ -78,6 +80,7 @@ game = {
 
   // adds ability to click buttons when game begins
   addButtonClicks: function() {
+    // loop through buttons and add click feature
     for (let i = 0; i < this.boardSize; i++) {
       $(`#button_${i}`).on('click', function() {
         game.currentButton = `button_${i}`;
@@ -93,6 +96,7 @@ game = {
 
   // removes ability to click any buttons once game is finished
   removeButtonClicks: function() {
+    // loop through buttons and remove click feature
     for (let i = 0; i < this.boardSize; i++) {
       $(`#button_${i}`).off('click')
     };
@@ -104,17 +108,17 @@ game = {
 
   // user plays a turn
   playTurn: function() {
-    //assign button and number variables
+    // assign button and number of clicked button to variables
     let $button = $(`#${this.currentButton}`);
     let button = this.currentButton;
     let number = button[button.length-1];
 
-    // test if button has already been clicked
+    // test if button has already been clicked, exit function if so
     if (this.buttonsClicked.includes(`${button}`)) {
       return;
     }
 
-    // update button visual
+    // update button visual with player's chosen color
     if (this.firstPlayerTurn) {
       $button.addClass(`${game.playerOneColorClass}`);
     } else {
@@ -134,7 +138,7 @@ game = {
     // test if player has won
     this.testWin();
 
-    // move into function if game not won AND first turn has been taken
+    // move into message function if first turn has been taken
     if (this.turn.length != 0) {
       // final stage: switch player turn
       this.firstPlayerTurn = !this.firstPlayerTurn;
@@ -147,14 +151,20 @@ game = {
   // TEST WIN
   //++++++++++++++++
 
+  // test if player has a winning combination
   testWin: function() {
+    // assign board array and current player turn to variables
     let board = this.board;
     let player = this.firstPlayerTurn
 
+    // loop through each win scenario combination
     for (let i = 0; i < this.winScenario.length; i++) {
+      // assign current win scenario combination to a
       let a = this.winScenario[i];
+      // test if current player (true or false) value is equal to win combination
       if (player === board[a[0]] && board[a[0]] === board[a[1]] && board[a[1]] === board[a[2]]) {
         const playerName = (this.player) ? `playerOne` : `playerTwo`
+        // update object key values
         this.gameWon = 'Win';
         this.playerWon = `${this[playerName]}`;
         this.winType = `${a[3]}`;
@@ -162,6 +172,7 @@ game = {
         this.resetGame();
         return;
       } else if (game.turn.length > 8) {
+        // update object key values
         this.gameWon = 'Draw';
         this.playerWon = `Draw`;
         this.winType = `Draw`;
@@ -176,21 +187,26 @@ game = {
   // MESSAGE BOARD
   //++++++++++++++++
 
+  // function to show user message depending on current state of game
   messageBoard: function(message_number) {
     // 0: player turn, 1: player win, 2: player draw, 3: reset
     const num = +message_number;
     const player = (this.firstPlayerTurn) ? `playerOneTitleClass`:`playerTwoTitleClass`;
     const playerID = (this.firstPlayerTurn) ? `playerOne`:`playerTwo`;
 
-
+    // move through each state of game code and return relevant message to user
     if (num === 0) {
+      // change player turn
       $('#message').removeClass();
       $('#message').addClass(`${this[`${player}`]}`).html(`${this[`${playerID}`]}'s Turn`);
     } else if (num === 1) {
+      // player win
       $('#message').html(`${this[`${playerID}`]} Wins!`);
     } else if (num === 2) {
+      // player draw
       $('#message').html(`Draw!`);
     } else if (num === 3) {
+      // game reset, show player one details
       $('#message').removeClass();
       $('#message').addClass(`${this.playerOneTitleClass}`).html(`${this.playerOne}'s Turn`);
     };
@@ -200,6 +216,7 @@ game = {
   // RESET GAME
   //++++++++++++++++
 
+  // push current game stats, reset game stats and reset game board
   resetGame: function() {
     // remove ability to click any more boxes
     this.removeButtonClicks();
@@ -222,6 +239,7 @@ game = {
       playerWon: this.playerWon,
       time: new Date()
     };
+    // push current game to historical games array and to localStorage
     this.previousGames.push(this.currentGame);
     window.localStorage.setItem(`${this.gameNumber}`,JSON.stringify(this.currentGame));
 
