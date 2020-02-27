@@ -1,48 +1,175 @@
 <!DOCTYPE html>
+
+<!-- add sun and cloud animation from home -->
+
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <script src="js/jquery.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/footable.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/scroll.js"></script>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footable.standalone.css">
     <title>Tic Tac Toe</title>
   </head>
 
+
   <body>
 
-    <div class="background">
-
+    <div id="sun" class="sun"></div>
     <div class="cloud"><img class="cloud_one" src="images/cloud.png" alt=""></div>
-    <div class="dot"></div>
+    <div class="cloud"><img class="cloud_two" src="images/cloud_five.png" alt=""></div>
+    <div class="cloud"><img class="cloud_three" src="images/cloud_two.png" alt=""></div>
+    <div class="cloud"><img class="cloud_four" src="images/cloud.png" alt=""></div>
+    <div class="cloud"><img class="cloud_five" src="images/cloud_three.png" alt=""></div>
+    <div class="cloud"><img class="cloud_six" src="images/cloud_four.png" alt=""></div>
+    <div class="cloud"><img class="cloud_seven" src="images/cloud_two.png" alt=""></div>
+    <div class="cloud"><img class="cloud_eight" src="images/cloud_two.png" alt=""></div>
+    <div class="cloud"><img class="cloud_nine" src="images/cloud_four.png" alt=""></div>
+    <div class="cloud"><img class="cloud_ten" src="images/cloud.png" alt=""></div>
+    <div class="cloud"><img class="cloud_eleven" src="images/cloud_five.png" alt=""></div>
+    <div class="cloud"><img class="cloud_twelve" src="images/cloud_five.png" alt=""></div>
+    <div class="cloud"><img class="cloud_thirteen" src="images/cloud.png" alt=""></div>
 
-    </div>
+    <nav class="nav_container">
+      <div id="button_container" class="button_container">
+        <a href="#start"><input id="start_button" class="button page_button" type="button" name="play" value="Play"></a>
+        <a href="#player"><input class="button page_button" type="button" name="start_game" value="Player"></a>
+        <a href="#stats"><input class="button page_button" type="button" name="stats" value="Stats"></a>
+        <a href="#home"><input class="button page_button" type="button" name="home" value="Home"></a>
+      </div>
+    </nav>
 
-  </div>
 
-    <header class="home_container">
+    <header id="home" class="home_container">
       <div class="title_container">
         <h1 class="title tic">
-          <span class="t_tic">T</span>
-          <span class="i_tic">I</span>
-          <span class="c_tic">C</span>
+          <span>T</span>
+          <span>I</span>
+          <span>C</span>
         </h1>
         <h1 class="title tac">
-          <span class="t_tac">T</span>
-          <span class="a_tac">A</span>
-          <span class="c_tac">C</span>
+          <span>T</span>
+          <span>A</span>
+          <span>C</span>
         </h1>
         <h1 class="title toe">
-          <span class="t_toe">T</span>
-          <span class="o_toe">O</span>
-          <span class="e_toe">E</span>
+          <span>T</span>
+          <span>O</span>
+          <span>E</span>
         </h1>
       </div>
-      <div class="start_game_container">
-        <a href="game.html"><input class="button start_game" type="button" name="start_game" value="Start Game"></a>
+      <div class="start_button_container">
+        <a href="#player"><input class="button start_game" type="button" name="start_game" value="Start Game"></a>
       </div>
     </header>
 
+
+    <div id="player" class="player_container">
+      <header class="header_container">
+            <h1 class="title game_title_tac">
+              <span>P</span>
+              <span>L</span>
+              <span>A</span>
+              <span>Y</span>
+              <span>E</span>
+              <span>R</span>
+              <span>S</span>
+            </h1>
+      </header>
+      <main class="player_choice_container">
+        <div id="player_one" class="player_box">
+          <h1>
+            <input id="player_one_title" class="player_choice_title one_title" type="text" name="player one input" value="Player One">
+          </h1>
+          <div id="player_one_grid" class="player_choice_grid">
+
+          </div>
+        </div>
+        <div id="player_two" class="player_box">
+          <h1>
+            <input id="player_two_title" class="player_choice_title two_title" type="text" name="player two input" value="Player Two">
+          </h1>
+          <div id="player_two_grid" class="player_choice_grid">
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+
+    <div id="start" class="container">
+      <div class="background">
+        <!-- <div class="cloud"><img class="cloud_one" src="images/cloud.png" alt=""></div>
+        <div class="dot"></div> -->
+        <div class="mountains">
+          <span class="c1"></span>
+          <span class="c2"></span>
+          <span class="c3"></span>
+        </div>
+        <div class="sea"></div>
+        <div class="background_base"></div>
+    </div>
+
+    <header class="header_container">
+          <h1 class="title game_title_tic">
+            <span>T</span>
+            <span>I</span>
+            <span>C</span>
+          </h1>
+          <h1 class="title game_title_tac">
+            <span>T</span>
+            <span>A</span>
+            <span>C</span>
+          </h1>
+          <h1 class="title game_title_toe">
+            <span>T</span>
+            <span>O</span>
+            <span>E</span>
+          </h1>
+    </header>
+
+    <main class="main_container">
+      <div class="message_container">
+        <div id="message" class="one_title">Player One Turn</div>
+      </div>
+
+      <div class="board_container">
+        <div class="game_board">
+
+        </div>
+        <div class="reset_game_container">
+          <input id="reset_game" class="button reset_game" type="button" name="reset game" value="Reset Game">
+        </div>
+      </div>
+    </main>
+    </div>
+
+
+    <div class="stats_padding">
+
+    </div>
+
+    <div class="stats_container">
+      <header id="stats" class="header_container">
+            <h1 class="title game_title_toe">
+              <span>S</span>
+              <span>T</span>
+              <span>A</span>
+              <span>T</span>
+              <span>S</span>
+            </h1>
+      </header>
+      <div class="table_container">
+        <table id="load_table" class="table" data-paging="true" data-sorting="true">
+          </table>
+      </div>
+  </div>
 
   </body>
 </html>
