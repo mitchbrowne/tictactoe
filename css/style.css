@@ -164,7 +164,6 @@ PLAYER CHOICE
 +++++++++ */
 
 .player_container {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -199,7 +198,6 @@ PLAYER CHOICE
   text-align: center;
   font-family: 'Damion';
   font-size: 1.2em;
-  color: white;
   padding-bottom: 1.5vh;
   border-bottom: 1vh solid #F05A28;
   /* -webkit-text-stroke: 0.5px #000000; */
@@ -228,6 +226,11 @@ PLAYER CHOICE
   height: inherit;
   background: #FFB096;
   box-shadow: 1mm 1mm 0mm #F05A28;
+}
+
+.choice_active {
+  border: 2px solid white;
+  box-shadow: 1mm 1mm 0mm #FFFFFF;
 }
 
 .pressed_choice {

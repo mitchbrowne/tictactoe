@@ -229,7 +229,7 @@ game = {
       playerWon: this.playerWon,
       time: new Date()
     };
-    this.previousGames.push(this.currentGame)
+    this.previousGames.push(this.currentGame);
     window.localStorage.setItem(`${this.gameNumber}`,JSON.stringify(this.currentGame));
 
     // save button array before reset
@@ -253,7 +253,8 @@ game = {
     $('#reset_game').on('click', function() {
       console.log("inside reset click");
       for (let i = 0; i < buttonArray.length; i++) {
-        $(`#${buttonArray[i]}`).css('background-color', '#FFB096');
+        $(`#${buttonArray[i]}`).removeClass(`${game.playerOneColorClass}`);
+        $(`#${buttonArray[i]}`).removeClass(`${game.playerTwoColorClass}`);
       };
       $(this).removeClass('active_reset');
       game.addButtonClicks();
@@ -271,39 +272,6 @@ game = {
 //++++++++++++++++
 
 game.startGame();
-
-//++++++++++++++++
-// TEST GAMES
-//++++++++++++++++
-
-// $('#test_game_1').on('click', function() {
-//   $('#button_0').trigger('click');
-//   $('#button_3').trigger('click');
-//   $('#button_1').trigger('click');
-//   $('#button_4').trigger('click');
-//   $('#button_2').trigger('click');
-// });
-//
-// $('#test_game_2').on('click', function() {
-//   $('#button_0').trigger('click');
-//   $('#button_2').trigger('click');
-//   $('#button_1').trigger('click');
-//   $('#button_5').trigger('click');
-//   $('#button_4').trigger('click');
-//   $('#button_8').trigger('click');
-// });
-//
-// $('#test_game_3').on('click', function() {
-//   $('#button_6').trigger('click');
-//   $('#button_7').trigger('click');
-//   $('#button_8').trigger('click');
-//   $('#button_3').trigger('click');
-//   $('#button_4').trigger('click');
-//   $('#button_5').trigger('click');
-//   $('#button_1').trigger('click');
-//   $('#button_0').trigger('click');
-//   $('#button_2').trigger('click');
-// });
 
 // document end
 })

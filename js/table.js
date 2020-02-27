@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  // add color to color column
+  // add constant reload
+
   const columns = [
     { "name": "gameNumber", "title": "Game", "breakpoints": "xs"}, // gameNumber
     { "name": "playerOne", "title": "Player One", "breakpoints": "xs"}, // playerOne name
@@ -11,6 +14,10 @@ $(document).ready(function() {
     { "name": "playerWon", "title": "Winner", "breakpoints": "xs"}, // which player won, none if draw
     // { "name": "board", "title": "Board", "breakpoints": "xs"}, // what board looked like at end
   ];
+  //
+  // $(document).on('change', function() {
+  //
+  // });
 
   const rowArray = [];
   for (let i = 0; i < window.localStorage.length; i++) {
